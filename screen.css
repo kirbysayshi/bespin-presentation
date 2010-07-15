@@ -1,0 +1,47 @@
+/*********** Resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+fieldset, img { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+q:before, q:after { content: ''; }
+abbr, acronym { border: 0; }
+a, object, embed { outline: none; }
+
+body { margin: 0; padding: 0; background:#FFFFFF url("bespin-bg.jpg") no-repeat fixed 50% 50%; font-size: 13px; font-family: Arial, sans-serif; }
+
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+* html .clearfix { height: 1px; }
+.clearfix { display: block; min-width: 0; }
+
+@font-face { font-family: "MuseoSans"; src: url(MuseoSans_500.otf) format("opentype"); }
+
+/* FireSlides specific. minus the background */
+#fire-view { position: relative; width: 1024px; height: 768px; margin: 50px auto 0px auto; overflow: hidden; background: url(bespin-header.png) no-repeat scroll right top; }
+#fire-view #fire-slider { position: absolute; width: 1024px; top: 0px; left: 0px; }
+#fire-view #fire-slider .fire-slide { width: 1024px; height: 768px; overflow: hidden; }
+
+/* Theme specific */
+#fire-view h1 { font-family: MuseoSans; font-size: 56px; font-weight: normal; letter-spacing: -1.5px; margin: 40px 0px 10px 0px; }
+#fire-view h2 { font-family: MuseoSans; font-size: 32px; line-height: 1; margin: 0px 0px 20px 0px; }
+#fire-view p { font-size: 24px; padding: 0px 250px 30px 0px; }
+#fire-view ul { font-size: 24px; padding: 0px 250px 30px 0px; list-style: square inside url("bespin-fav.png"); }
+#fire-view li { padding: 0px 0px 10px 10px; }
+#fire-view .super-text { font-size: 96px; text-align: center; padding: 200px 0px 200px 0px; }
+#fire-view .super-text + p { text-align: center; padding: 0 0 0 0; }
+
+#fire-view .fire-slide-start { }
+#fire-view .fire-slide-start h1 { font-size: 68px; margin-top: 400px; }
+
+/*Specific media*/
+.convertable-bespin { font-family: Helvetica, Arial; width: 1020px; height: 768px;  }
+.convertable-bespin h1 { font-size: 95% !important; letter-spacing: -1.25px !important; line-height: 1.0; margin: 0px 0px 25px 10px !important; }
+.convertable-bespin h2 { font-size: 95% !important; margin: 2px 0 1px !important; font-family: Helvetica, Arial; }
+.convertable-bespin p { font-size: 10px !important; }
+.convertable-bespin ul { font-size: 90% !important; list-style:none outside none !important; }
+.convertable-bespin li { padding: 0 !important; }
+#cloud-city { background: url(episode_5_cloud_city_clouds.jpg) no-repeat 0 -125px; height: 512px; margin-top: 136px; }
+pre.side-by-side { width: 440px; float: left; margin: 50px 72px 0px 0px; overflow: hidden; }

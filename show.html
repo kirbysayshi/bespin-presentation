@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Bespin {}</title>
+        <link rel="stylesheet" href="screen.css" type="text/css" media="screen" charset="utf-8" />
+        <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="fireslides.js"></script>
+
+        <link id="bespin_base" href="./bembedded">
+        <link rel="stylesheet" href="bembedded/BespinEmbedded.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="bembedded/BespinEmbedded.js"></script>
+    </head>
+    <body>
+        <div id="fire-view">
+            <div id="fire-slider">
+
+                <div class="fire-slide fire-slide-start">
+                    <h1>Bespin</h1>
+                    <h2>Code in the Cloud</h2>
+                </div>
+
+                <div class="fire-slide">
+                    <h1>Bespin is...</h1>
+                </div>
+
+                <div class="fire-slide">
+                    <p>
+                        ...a gas giant in the Bespin system of the Anoat sector on the Ison Corridor in the Greater Javin region of the Outer Rim Territories.
+                    </p>
+                    <div id="cloud-city"></div>
+                </div>
+
+                <div class="fire-slide">
+                    <h1 class="super-text">...an experiment.</h1>
+                </div>
+
+                <div class="fire-slide">
+                    <h1 class="super-text">...a web-based code editor that uses HTML5.</h1>
+                </div>
+
+                <div class="fire-slide">
+                    <h1 class="super-text">...embeddable (65K gzipped).</h1>
+                </div>
+
+                <div class="fire-slide">
+                    <h1 class="super-text">...customizable using dryice.</h1>
+                </div>
+
+                <div class="fire-slide">
+                    <h1 class="super-text">...easily extended using JavaScript because:</h1>
+                </div>
+
+                <div class="fire-slide">
+                    <h1 class="super-text">It IS JavaScript.</h1>
+                    <p>(Mostly.)</p>
+                </div>
+
+                <div class="fire-slide">
+                    <div id="" class="convertable-bespin bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "js", "fontsize": 14, "stealFocus": false }'></div>
+                </div>
+
+                <div class="fire-slide">
+                    <h1>It's a buzzword bonanza</h1>
+                    <ul>
+                        <li>jQuery as framework</li>
+                        <li>Web Workers for syntax highlighting</li>
+                        <li>LESS.js for styling the interface (it's themeable!)</li>
+                        <li>Plugins are CommonJS modules: basically ready for server-side</li>
+                    </ul>
+
+                    <h2>Example LESS.js</h2>
+                    <pre type="text/javascript">
+@brand-color: #3879BD;
+
+.rounded(@radius: 3px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+#header {
+    .rounded(5px);
+    a {
+        color: @brand-color;
+        &:hover {
+            color: #000;
+        }
+    }
+}
+                    </pre>
+                </div>
+
+                <div class="fire-slide">
+                    <h1>Speaking of plugins...</h1>
+                    <pre class="side-by-side">
+"define metadata";
+({
+    "dependencies": {
+        "markdown_js": "0.1.2"
+    },
+    "provides": [{
+        "ep": "command",
+        "name": "markdown",
+        "description": "commands for working with markdown files"
+    },{
+        "ep": "command",
+        "name": "markdown preview",
+        "description": "preview the HTML form of this markdown text",
+        "pointer": "#preview",
+        "key": "ctrl_shift_p]",
+        "pointer": "#preview"
+    },{
+        "ep": "command",
+        "name": "markdown convert",
+        "description": "convert the selected text to HTML",
+        "pointer": "#convert"
+    }]
+});
+"end";
+                    </pre>
+                    <pre class="side-by-side">
+var env = require('environment').env;
+var markdown = require('markdown_js');
+
+exports.preview = function(args, request){
+    var text = env.editor.selectedText;
+    if (!text){
+        text = env.editor.value;
+    }
+    var popup = window.open("", "_blank", "location=no,menubar=no");
+    popup.document.body.innerHTML = markdown.toHTML(text);
+    request.done();
+};
+
+exports.convert = function(args, request){
+    var allOrSelection = 'selectedText';
+    var text = env.editor.selectedText;
+    if(!text){
+        allOrSelection = 'value';
+        text = env.editor.value;
+    }
+    var html = markdown.toHTML(text);
+    env.editor[allOrSelection] = html;
+    request.done();
+};
+                    </pre>
+                </div>     
+
+                <div class="fire-slide">
+                    <h1>History</h1>
+                    <ul>
+                        <li>Initially developed by Ben Galbraith and Dion Almaer <br />(founders of Ajaxian)</li>
+                        <li>First public release in February 2009<br />http://bespin.mozillalabs.com</li>
+                        <li>First release of bespin embedded in November 2009</li>
+                        <li>First release of rebooted client/server in April 2010</li>
+                    </ul>
+                </div>
+
+                <div class="fire-slide">
+                    <h1>Reboot?</h1>
+                    <ul>
+                        <li>A massive rewrite of the existing client-side code, to make it more easily extensible and compartmentalized.</li>
+                        <li>They took a step back in functionality (collaboration, vcs).</li>
+                    </ul>
+                </div>
+
+                <div class="fire-slide">
+                    <img src="l_bespin01.png" />
+                </div>
+
+                <div class="fire-slide">
+                    <div class="convertable-bespin bespin" data-bespinoptions='{ "settings": { "tabstop": 4 }, "syntax": "js", "fontsize": 14, "stealFocus": false }'></div>
+                </div>
+
+                <div class="fire-slide">
+                    <h1>Course Correction</h1>
+                    <ul>
+                        <li>Challenge began as coding in the cloud.</li>
+                        <li>There are actualy TWO challenges in that statement.</li>
+                        <li>No longer as focused on "their cloud", more "your cloud".</li>
+                        <li>Next Step: rewrite the server-side backend in JavaScript<br />(currently Python)</li>
+                    </ul>
+                </div>
+
+                <!--<div class="fire-slide">
+                    <iframe id="mozilla-bespin-framed" class="full-slide-framed" src="http://bespin.mozillalabs.com"></iframe>
+                </div>-->
+
+                <div class="fire-slide">
+                    <h1>Demos...</h1>
+                    <ul>
+                        <li><a href="http://bespin.mozillalabs.com">bespin.mozillalabs.com</a></li>
+                        <li>The Bookmarklet</li>
+                        <li>Local Plugin Development</li>
+                    </ul>
+                </div>
+
+                <div class="fire-slide">
+                    <h1>Resources</h1>
+                    <ul>
+                        <li>Bespin: bespin.mozillalabs.com</li>
+	                    <li>Blog: mozillalabs.com/bespin</li>
+	                    <li>User Group: groups.google.com/group/bespin</li>
+	                    <li>Dev Group: groups.google.com/group/bespin-core</li>
+	                    <li>Documentation: https://bespin.mozillalabs.com/docs/</li>
+	                    <li>Twitter: @Bespin</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        <script type="text/javascript" language="javascript" charset="utf-8">
+        $(function(){
+            FS();
+        });
+        </script>
+    </body>
+</html>
